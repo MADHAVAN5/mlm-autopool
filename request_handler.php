@@ -80,7 +80,6 @@
         {
             if (check_user_active_or_not($user)) {
                 if (check_pin_valid_or_not($pin)) {
-                    // $timestamp = date("m/d/Y h:i:s",time());
                     $timestamp = date("Y-m-d h:i:sa");
                     mysqli_query($conn,"UPDATE `agent` SET `status`='1',`activatation_date`='$timestamp' WHERE `agent_id` = '$user'");
                     level_income_distribute($user);
@@ -136,4 +135,25 @@
         }
         header("Location:withdrawal.php");
     }
+
+    if (isset($_REQUEST['activation_req_btn']))
+    {
+        $agent_id = mysqli_real_escape_string($conn,$_REQUEST['agent_id']);
+        $payer_name = mysqli_real_escape_string($conn,$_REQUEST['payer_name']);
+        $payment_id = mysqli_real_escape_string($conn,$_REQUEST['payment_id']);
+        $package = mysqli_real_escape_string($conn,$_REQUEST['package']);
+        $amt = mysqli_real_escape_string($conn,$_REQUEST['amt']);
+        $payment_proof = $_FILES['img_input']['name'];
+        $payment_proof_temp = $_FILES['img_input']['tmp_name'];
+        $payment_proof_dir = "./admin/images/payment_proof/".$payment_proof;
+        if (move_uploaded_file($payment_proof_temp, $payment_proof_dir)) 
+        {
+            mysqli_query($conn,"INSERT INTO `payment_proof`(`agent_id`, `name`, `transaction_id`, `package`, `amount`, `img_name`) VALUES('$agent_id','$payer_name','$payment_id','$package','$amt','$payment_proof')");    
+            $_SESSION['status']=4;
+        }
+        header("Location:activation_req.php");
+    }
+
+
+
 ?>

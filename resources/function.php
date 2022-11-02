@@ -63,19 +63,26 @@
     {
         global $conn;
         $sponsor_id = get_spons_id($agent_id);
-        $amt = 100;
-        $time = date("Y-m-d h:i:sa");
-        mysqli_query($conn,"UPDATE `agent_income` SET `wallet`=`wallet`+$amt WHERE `agent_id`='$sponsor_id'");
-        mysqli_query($conn,"INSERT INTO `wallet_history`(`agent_id`, `amt`, `desp`, `date_time`, `status`) VALUES ('$sponsor_id','$amt','Referral Income','$time','0')");
+        $package = mysqli_query($conn,"SELECT `package` FROM `agent` WHERE `agent_id`='$sponsor_id'");
+        if($package=='b-silver' or $package=='b-gold' or $package=='b-diamond' or $package=='b-platinum')
+        {
+            $amt = 100;
+            $time = date("Y-m-d h:i:sa");
+            mysqli_query($conn,"UPDATE `agent_income` SET `wallet`=`wallet`+$amt WHERE `agent_id`='$sponsor_id'");
+            mysqli_query($conn,"INSERT INTO `wallet_history`(`agent_id`, `amt`, `desp`, `date_time`, `status`) VALUES ('$sponsor_id','$amt','Referral Income','$time','0')");
+        }
         $a=1;
         while ($a <= 5 && $sponsor_id!=0)
         {
+            $package = mysqli_query($conn,"SELECT `package` FROM `agent` WHERE `agent_id`='$sponsor_id'");
             $time = date("Y-m-d h:i:sa");
             $level = [5,4,3,2,1];
             // $amt = $level[$a-1];
-            $amt = 100;
-            mysqli_query($conn,"UPDATE `agent_income` SET `wallet`=`wallet`+$amt WHERE `agent_id`='$sponsor_id'");
-            mysqli_query($conn,"INSERT INTO `wallet_history`(`agent_id`, `amt`, `desp`, `date_time`, `status`) VALUES ('$sponsor_id','$amt','Level Income','$time','0')");
+            if ($package=='b-silver') {
+                $amt = 100;
+                mysqli_query($conn,"UPDATE `agent_income` SET `wallet`=`wallet`+$amt WHERE `agent_id`='$sponsor_id'");
+                mysqli_query($conn,"INSERT INTO `wallet_history`(`agent_id`, `amt`, `desp`, `date_time`, `status`) VALUES ('$sponsor_id','$amt','Level Income','$time','0')");
+            }
             $sponsor_id = get_spons_id($sponsor_id);
             ++$a;
         }

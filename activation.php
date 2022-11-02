@@ -51,7 +51,8 @@ require_once("./resources/check_login.php");
                                                             </button>
                                                         </div>
                                                     <?php
-                                                } else {
+                                                } 
+                                                else {
                                                     ?>
                                                         <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
                                                             <span class="badge badge-pill badge-danger">Alert</span>
@@ -91,6 +92,23 @@ require_once("./resources/check_login.php");
                                                         <i class="fa fa-asterisk"></i>
                                                     </div>
                                                     <input type="text" id="password" name="pin" placeholder="Enter PIN" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="select" class=" form-control-label">Package</label>
+                                                </div>
+                                                <div class="col-12 col-m d-9">
+                                                    <select name="package" id="select" class="form-control">
+                                                        <option value="">Please select</option>
+                                                        <option value="b-silver">Basic-Silver</option>
+                                                        <option value="b-gold">Basic-Gold</option>
+                                                        <option value="b-diamond">Basic-Diamond</option>
+                                                        <option value="b-platinum">Basic-Platinum</option>
+                                                        <option value="p-silver">Premium-Silver</option>
+                                                        <option value="p-gold">Premium-Gold</option>
+                                                        <option value="p-diamond">Premium-Diamond</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-actions form-group">

@@ -45,7 +45,7 @@ require_once("./resources/check_login.php");
                                         <li><strong>100</strong>/Auto fill</li>
                                         <li><strong>5</strong>totel levels</li>
                                     </ul>
-                                    <a href="#" class="order-btn">Order Now</a>
+                                    <button name="silver-pkg-btn" class="order-btn">Order Now</button>
                                 </div>
 
                                 <div class="pricing-card">
@@ -57,7 +57,7 @@ require_once("./resources/check_login.php");
                                         <li><strong>100</strong>/Auto fill</li>
                                         <li><strong>5</strong>totel levels</li>
                                     </ul>
-                                    <a href="#" class="order-btn">Order Now</a>
+                                    <button name="gold-pkg-btn" class="order-btn">Order Now</button>
                                 </div>
 
                                 <div class="pricing-card">
@@ -69,7 +69,7 @@ require_once("./resources/check_login.php");
                                         <li><strong>100</strong>/Auto fill</li>
                                         <li><strong>5</strong>totel levels</li>
                                     </ul>
-                                    <a href="#" class="order-btn">Order Now</a>
+                                    <button name="diamond-pkg-btn" class="order-btn">Order Now</a>
                                 </div>
 
                                 <div class="pricing-card">
@@ -81,7 +81,7 @@ require_once("./resources/check_login.php");
                                         <li><strong>100</strong>/Auto fill</li>
                                         <li><strong>5</strong>totel levels</li>
                                     </ul>
-                                    <a href="#" class="order-btn">Order Now</a>
+                                    <button name="untimate-pkg-btn" class="order-btn">Order Now</a>
                                 </div>
                             </div>
                         </div>
