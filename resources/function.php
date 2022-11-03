@@ -60,7 +60,8 @@ function level_income_distribute($agent_id)
     global $conn;
     $sponsor_id = get_spons_id($agent_id);
     $time = date("Y-m-d h:i:sa");
-    $package = mysqli_query($conn, "SELECT `package` FROM `agent` WHERE `agent_id`='$sponsor_id'");
+    $qurry = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM `agent` WHERE `agent_id`='$sponsor_id'"));
+    $package = $qurry['package'];
     if ($package == 'b-silver' or $package == 'b-gold' or $package == 'b-diamond' or $package == 'b-platinum') {
         $amt = 100;
     } elseif ($package == 'p-silver') {
@@ -78,28 +79,26 @@ function level_income_distribute($agent_id)
     $a = 1;
     while ($a <= 5 && $sponsor_id != 0) {
         if($package == 'b-silver') {
-            $amt = 50;
-        } elseif ($package == 'b-gold') {
-            $amt = 100;
-        } elseif ($package == 'b-diamond') {
-            $amt = 400;
-        } elseif ($package == 'b-platinum') {
-            $amt = 600;
-        } elseif ($package == 'p-silver') {
-            $amt = 0;
-        } elseif ($package == 'p-gold') {
-            $amt = 0;
-        } elseif ($package == 'p-diamond') {
-            $amt = 0;
-        }
-        else {
-            $amt = 0;
-        }
-
-        if ($package == 'b-silver') {
-            $amt = 100;
+            $amt = 20;
             mysqli_query($conn, "UPDATE `agent_income` SET `wallet`=`wallet`+$amt WHERE `agent_id`='$sponsor_id'");
             mysqli_query($conn, "INSERT INTO `wallet_history`(`agent_id`, `amt`, `desp`, `date_time`, `status`) VALUES ('$sponsor_id','$amt','Level Income','$time','0')");
+        } elseif ($package == 'b-gold') {
+            $level = [40,40,40,40,40,40,40,40,40,40,80,80];
+            $amt = $level[$a-1];
+            mysqli_query($conn, "UPDATE `agent_income` SET `wallet`=`wallet`+$amt WHERE `agent_id`='$sponsor_id'");
+            mysqli_query($conn, "INSERT INTO `wallet_history`(`agent_id`, `amt`, `desp`, `date_time`, `status`) VALUES ('$sponsor_id','$amt','Level Income','$time','0')");
+        } elseif ($package == 'b-diamond') {
+            $level = [125,125,125,125,125,125,125,125,125,125,150,150];
+            $amt = $level[$a-1];
+            mysqli_query($conn, "UPDATE `agent_income` SET `wallet`=`wallet`+$amt WHERE `agent_id`='$sponsor_id'");
+            mysqli_query($conn, "INSERT INTO `wallet_history`(`agent_id`, `amt`, `desp`, `date_time`, `status`) VALUES ('$sponsor_id','$amt','Level Income','$time','0')");
+        } elseif ($package == 'b-platinum') {
+            $level = [170,170,170,170,170,170,170,170,170,170,200,200];
+            $amt = $level[$a-1];
+            mysqli_query($conn, "UPDATE `agent_income` SET `wallet`=`wallet`+$amt WHERE `agent_id`='$sponsor_id'");
+            mysqli_query($conn, "INSERT INTO `wallet_history`(`agent_id`, `amt`, `desp`, `date_time`, `status`) VALUES ('$sponsor_id','$amt','Level Income','$time','0')");
+        } else {
+            $amt = 0;
         }
         $sponsor_id = get_spons_id($sponsor_id);
         ++$a;
@@ -122,11 +121,28 @@ function distribute_level_for_autopool($agent_id)
     global $conn;
     $data = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM `matrix_autopool` WHERE `agent_id`='$agent_id'"));
     $parent_id = $data['placement_id'];
+    $qurry = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM `agent` WHERE `agent_id`='$parent_id'"));
+    $package = $qurry['package'];
     $a = 0;
-    while ($a <= 2 && $parent_id != '0') {
+    while ($parent_id != '0') {
         $time = date("Y-m-d h:i:sa");
-        $level = [5, 4, 3];
-        // $amt = $level[$a-1];
+        if ($package == 'b-silver') {
+            $amt = 100;
+        } elseif ($package == 'b-gold') {
+            $amt = 200;
+        } elseif ($package == 'b-diamond') {
+            $amt = 500;
+        } elseif ($package == 'b-platinum') {
+            $amt = 1000;
+        } elseif ($package == 'p-silver') {
+            $amt = 5500;
+        } elseif ($package == 'p-gold') {
+            $amt = 25000;
+        } elseif ($package == 'p-diamond') {
+            $amt = 33300;
+        } else{
+            $amt = 0;
+        }
         $amt = 100;
         mysqli_query($conn, "UPDATE `agent_income` SET `wallet`=`wallet`+$amt WHERE `agent_id`='$parent_id'");
         mysqli_query($conn, "INSERT INTO `wallet_history`(`agent_id`, `amt`, `desp`, `date_time`, `status`) VALUES ('$parent_id','$amt','Matrix autopool Level Income','$time','0')");

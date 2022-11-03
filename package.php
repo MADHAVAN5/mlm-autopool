@@ -38,48 +38,52 @@ require_once("./resources/check_login.php");
                             <div class="pricing-table col">
                                 <div class="pricing-card">
                                     <h3 class="pricing-card-header">Silver</h3>
-                                    <div class="price"><sup>$</sup>500<span>.00</span></div>
+                                    <div class="price"><sup>₹</sup>500<span>.00</span></div>
                                     <ul>
                                         <li><strong>100</strong>/refer</li>
-                                        <li><strong>50</strong>/level</li>
+                                        <li><strong>20</strong>/level</li>
                                         <li><strong>100</strong>/Auto fill</li>
-                                        <li><strong>5</strong>totel levels</li>
+                                        <li><strong>12</strong>totel levels</li>
+                                        <li><strong></strong></li>
                                     </ul>
-                                    <button name="silver-pkg-btn" class="order-btn">Order Now</button>
+                                    <button type="button" name="silver-pkg-btn" data-toggle="modal" data-target="#smallmodal" class="order-btn">Order Now</button>
                                 </div>
 
                                 <div class="pricing-card">
                                     <h3 class="pricing-card-header">Gold</h3>
-                                    <div class="price"><sup>$</sup>1000<span>.00</span></div>
+                                    <div class="price"><sup>₹</sup>1000<span>.00</span></div>
                                     <ul>
                                         <li><strong>100</strong>/refer</li>
-                                        <li><strong>50</strong>/level</li>
+                                        <li><strong>40</strong>for 10 level</li>
+                                        <li><strong>80</strong>for 2 level</li>
                                         <li><strong>100</strong>/Auto fill</li>
-                                        <li><strong>5</strong>totel levels</li>
+                                        <li><strong>12</strong>totel levels</li>
                                     </ul>
                                     <button name="gold-pkg-btn" class="order-btn">Order Now</button>
                                 </div>
 
                                 <div class="pricing-card">
                                     <h3 class="pricing-card-header">Diamond</h3>
-                                    <div class="price"><sup>$</sup>2500<span>.00</span></div>
+                                    <div class="price"><sup>₹</sup>2500<span>.00</span></div>
                                     <ul>
                                         <li><strong>100</strong>/refer</li>
-                                        <li><strong>50</strong>/level</li>
+                                        <li><strong>125</strong>for 2 level</li>
+                                        <li><strong>150</strong>for 2 level</li>
                                         <li><strong>100</strong>/Auto fill</li>
-                                        <li><strong>5</strong>totel levels</li>
+                                        <li><strong>12</strong>totel levels</li>
                                     </ul>
                                     <button name="diamond-pkg-btn" class="order-btn">Order Now</a>
                                 </div>
 
                                 <div class="pricing-card">
-                                    <h3 class="pricing-card-header">Ultimate</h3>
-                                    <div class="price"><sup>$</sup>6500<span>.00</span></div>
+                                    <h3 class="pricing-card-header">Platinum</h3>
+                                    <div class="price"><sup>₹</sup>6500<span>.00</span></div>
                                     <ul>
                                         <li><strong>100</strong>/refer</li>
-                                        <li><strong>50</strong>/level</li>
+                                        <li><strong>170</strong>for 10 level</li>
+                                        <li><strong>200</strong>for 2 level</li>
                                         <li><strong>100</strong>/Auto fill</li>
-                                        <li><strong>5</strong>totel levels</li>
+                                        <li><strong>12</strong>totel levels</li>
                                     </ul>
                                     <button name="untimate-pkg-btn" class="order-btn">Order Now</a>
                                 </div>
@@ -93,51 +97,65 @@ require_once("./resources/check_login.php");
                             <div class="pricing-table col">
                                 <div class="pricing-card">
                                     <h3 class="pricing-card-header">Silver</h3>
-                                    <div class="price"><sup>$</sup>500<span>.00</span></div>
+                                    <div class="price"><sup>₹</sup>12500<span>.00</span></div>
                                     <ul>
+                                        <li><strong></strong></li>
                                         <li><strong>100</strong>/refer</li>
-                                        <li><strong>50</strong>/level</li>
-                                        <li><strong>100</strong>/Auto fill</li>
-                                        <li><strong>5</strong>totel levels</li>
+                                        <li><strong>5500</strong>/Auto fill</li>
+                                        <li><strong></strong></li>
                                     </ul>
                                     <a href="#" class="order-btn">Order Now</a>
                                 </div>
 
                                 <div class="pricing-card">
                                     <h3 class="pricing-card-header">Gold</h3>
-                                    <div class="price"><sup>$</sup>1000<span>.00</span></div>
+                                    <div class="price"><sup>₹</sup>55000<span>.00</span></div>
                                     <ul>
+                                        <li><strong></strong></li>
                                         <li><strong>100</strong>/refer</li>
-                                        <li><strong>50</strong>/level</li>
-                                        <li><strong>100</strong>/Auto fill</li>
-                                        <li><strong>5</strong>totel levels</li>
+                                        <li><strong>25000</strong>/Auto fill</li>
+                                        <li><strong></strong></li>
                                     </ul>
                                     <a href="#" class="order-btn">Order Now</a>
                                 </div>
 
                                 <div class="pricing-card">
                                     <h3 class="pricing-card-header">Diamond</h3>
-                                    <div class="price"><sup>$</sup>2500<span>.00</span></div>
+                                    <div class="price"><sup>₹</sup>80000<span>.00</span></div>
                                     <ul>
+                                        <li><strong></strong></li>
                                         <li><strong>100</strong>/refer</li>
-                                        <li><strong>50</strong>/level</li>
-                                        <li><strong>100</strong>/Auto fill</li>
-                                        <li><strong>5</strong>totel levels</li>
+                                        <li><strong>33300</strong>/Auto fill</li>
+                                        <li><strong></strong></li>
                                     </ul>
                                     <a href="#" class="order-btn">Order Now</a>
                                 </div>
-
-                                <div class="pricing-card">
-                                    <h3 class="pricing-card-header">Ultimate</h3>
-                                    <div class="price"><sup>$</sup>6500<span>.00</span></div>
-                                    <ul>
-                                        <li><strong>100</strong>/refer</li>
-                                        <li><strong>50</strong>/level</li>
-                                        <li><strong>100</strong>/Auto fill</li>
-                                        <li><strong>5</strong>totel levels</li>
-                                    </ul>
-                                    <a href="#" class="order-btn">Order Now</a>
-                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="smallmodalLabel">BASIC SILVER plan</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    send 
+                                    Name : Akash Kumar <br>
+                                    Acc NO : 139301000026173 <br>
+                                    IFSC Code : IOBA0001393
+                                    <br><br>
+                                    Paytm : 9585368504
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary">Confirm</button>
                             </div>
                         </div>
                     </div>

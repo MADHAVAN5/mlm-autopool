@@ -76,12 +76,13 @@
     {
         $user = mysqli_real_escape_string($conn,$_REQUEST['user_id']);
         $pin = mysqli_real_escape_string($conn,$_REQUEST['pin']);
+        $package = mysqli_real_escape_string($conn,$_REQUEST['package']);
         if (check_valid_user_id($user))
         {
             if (check_user_active_or_not($user)) {
                 if (check_pin_valid_or_not($pin)) {
                     $timestamp = date("Y-m-d h:i:sa");
-                    mysqli_query($conn,"UPDATE `agent` SET `status`='1',`activatation_date`='$timestamp' WHERE `agent_id` = '$user'");
+                    mysqli_query($conn,"UPDATE `agent` SET `status`='1',`activatation_date`='$timestamp',`package`='$package' WHERE `agent_id` = '$user'");
                     level_income_distribute($user);
                     // mysqli_query($conn,"UPDATE `pins` SET `pin_status`='1',`used_date`='$timestamp',`activate_user`='$user' WHERE `pin_value`='$pin'");
                     insert_in_matrix_autopool($user);
