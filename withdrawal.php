@@ -51,6 +51,13 @@ require_once("./resources/check_login.php");
                                                             </button>
                                                         </div>
                                                     <?php
+                                                } 
+                                                elseif ($_SESSION['status'] == 5) {
+                                                ?>
+                                                    <div class="alert alert-primary" role="alert">
+                                                        <a href="./profile.php" class="alert-link">click here</a>. add your bank details.
+                                                    </div>
+                                                <?php
                                                 } else {
                                                     ?>
                                                         <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">

@@ -37,6 +37,72 @@ require_once("./resources/function.php");
                         <div class="row m-t-30">
                             <div class="col-lg-12">
                                 <div class="card">
+                                    <div class="card-header">Bank Details</div>
+                                    <?php
+                                    if (isset($_SESSION['status'])) {
+                                        if ($_SESSION['status'] == 4) {
+                                    ?>
+                                            <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+                                                <span class="badge badge-pill badge-success">Success</span>
+                                                bank details saved.
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
+                                                <span class="badge badge-pill badge-danger">Alert</span>
+                                                invalid
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                    <?php
+                                        }
+
+                                        unset($_SESSION['status']);
+                                    }
+                                    ?>
+                                    <div class="card-body">
+                                        <form action="./request_handler.php" method="post" class="form-horizontal">
+                                            <div class="row form-group">
+                                                <?php
+                                                $bank_details = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM `bank_account` WHERE `agent_id` = '$my_id'"));
+                                                ?>
+                                                <div class="col col-md-6">
+                                                    <label>ID</label>
+                                                    <input type="text" name="agent_id" value="<?php echo $bank_details['agent_id']; ?>" class="form-control" readonly>
+                                                </div>
+                                                <div class="col col-md-6">
+                                                    <label>Account Holder</label>
+                                                    <input type="text" name="acc_holder" value="<?php echo $bank_details['account_holder'] ?>" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-12">
+                                                    <label>Account Number</label>
+                                                    <input type="text" name="acc_num" value="<?php echo $bank_details['account_number']; ?>" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-4">
+                                                    <label>IFSC Code</label>
+                                                    <input type="text" name="ifsc_code" value="<?php echo $bank_details['IFSC_code']; ?>" class="form-control" required>
+                                                </div>
+                                                <div class="col col-md-8">
+                                                    <label>Bank Name</label>
+                                                    <input type="text" name="bank_name" value="<?php echo $bank_details['bank_name']; ?>" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer form-actions">
+                                                <button type="submit" name="bank_detail_update" class="btn btn-primary btn-sm">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="card">
                                     <nav>
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                             <a class="nav-item nav-link active" id="custom-nav-home-tab" data-toggle="tab" href="#custom-nav-home" role="tab" aria-controls="custom-nav-home" aria-selected="true">Profile</a>
@@ -48,15 +114,15 @@ require_once("./resources/function.php");
                                             <form action="./request_handler.php" method="post" class="form-horizontal">
                                                 <div class="row form-group">
                                                     <?php
-                                                        $details = mysqli_query($conn, "SELECT * FROM `agent` WHERE `agent_id` = '$my_id'");
-                                                        $details = mysqli_fetch_array($details);
+                                                    $details = mysqli_query($conn, "SELECT * FROM `agent` WHERE `agent_id` = '$my_id'");
+                                                    $details = mysqli_fetch_array($details);
                                                     ?>
                                                     <div class="col col-md-6">
-                                                        <label>ID</label> <br>
+                                                        <label>ID</label>
                                                         <input type="text" name="agent_id" value="<?php echo $details['agent_id']; ?>" class="form-control" readonly>
                                                     </div>
                                                     <div class="col col-md-6">
-                                                        <label>Sponsor ID</label> <br>
+                                                        <label>Sponsor ID</label>
                                                         <input type="text" name="sponsor_id" value="<?php echo $details['sponsor_id']; ?>" class="form-control" disabled>
                                                     </div>
                                                 </div>

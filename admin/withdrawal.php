@@ -1,6 +1,6 @@
 <?php
-require_once("./resources/connection_build.php");
-require_once("./resources/check_login.php");
+require_once("../resources/connection_build.php");
+require_once("../resources/check_login.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@ require_once("./resources/check_login.php");
     <!-- Title Page-->
     <title>Dashboard</title>
 
-    <?php require_once("./resources/header_links.php"); ?>
+    <?php require_once("../resources/header_links.php"); ?>
 
 </head>
 
@@ -66,36 +66,17 @@ require_once("./resources/check_login.php");
                                                 unset($_SESSION['status']);
                                             } 
                                         ?>
-                                        <form action="./request_handler.php" method="POST" class="">
+                                        <form action="../request_handler.php" method="POST" class="">
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-user"></i>
                                                     </div>
-                                                    <input type="text" id="username" name="user_id" value="<?php echo $my_id;?>" class="form-control" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <?php
-                                                    $amount = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `agent_income` WHERE `agent_id`='$my_id'")); 
-                                                ?>
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-inr"></i>
-                                                    </div>
-                                                    <input type="text" id="password" value="<?php echo $amount['wallet']; echo '.00';?>" class="form-control" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-inr"></i>
-                                                    </div>
-                                                    <input type="number" id="password" name="amount" placeholder="Withdrawal Amount" min="100" step="100" max="10000" class="form-control">
+                                                    <input type="text" id="username" name="user_id" placeholder="agent id" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="form-actions form-group">
-                                                <button type="submit" name="withdrawal_btn" class="btn btn-success btn-sm">Request Withdrawal</button>
+                                                <button type="submit" name="withdrawal__btn" class="btn btn-success btn-sm">Withdrawal Success</button>
                                             </div>
                                         </form>
                                     </div>
@@ -111,7 +92,7 @@ require_once("./resources/check_login.php");
             </div>
         </div>
     </div>
-    <?php require_once("./resources/footer_links.php") ?>
+    <?php require_once("../resources/footer_links.php") ?>
 </body>
 
 </html>

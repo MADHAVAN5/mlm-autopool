@@ -48,7 +48,7 @@ require_once("./resources/check_login.php");
                                                     <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
                                                         <span class="badge badge-pill badge-success">Success</span>
                                                         REQUEST SEND SUCCESSFULLY 
-                                                        activated within 24 hours
+                                                        your account active within 24 hours
                                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
@@ -58,15 +58,7 @@ require_once("./resources/check_login.php");
                                                 ?>
                                                     <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
                                                         <span class="badge badge-pill badge-danger">Alert</span>
-                                                        <?php
-                                                        if ($_SESSION['status'] == 1) {
-                                                            echo "USER ID DOES NOT EXISTS";
-                                                        } elseif ($_SESSION['status'] == 2) {
-                                                            echo "USER ID ALREADY ACTIVATED";
-                                                        } else {
-                                                            echo "PIN NOT VALID";
-                                                        }
-                                                        ?>
+                                                        invalid
                                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
@@ -82,7 +74,7 @@ require_once("./resources/check_login.php");
                                                     <label class=" form-control-label">Agent ID</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="text-input" name="agent_id" value="<?php echo $my_id; ?>" class="form-control">
+                                                    <input type="text" id="text-input" name="agent_id" value="<?php echo $my_id; ?>" class="form-control" readonly>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
@@ -98,7 +90,7 @@ require_once("./resources/check_login.php");
                                                     <label for="email-input" class=" form-control-label">Payment ID</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="id-input" name="payment_id" placeholder="Number" class="form-control" required>
+                                                    <input type="text" id="id-input" name="payment_id" placeholder="payment id" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
@@ -123,7 +115,16 @@ require_once("./resources/check_login.php");
                                                     <label for="password-input" class="form-control-label">Amount</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="password-input" name="amt" placeholder="Password" class="form-control" required>
+                                                    <input type="number" id="password-input" name="amt" placeholder="number" min="100" step="100" max="80000" list="package_amt" class="form-control" required>
+                                                    <datalist id="package_amt">
+                                                        <option value="500"></option>
+                                                        <option value="1000"></option>
+                                                        <option value="2500"></option>
+                                                        <option value="6500"></option>
+                                                        <option value="12500"></option>
+                                                        <option value="55000"></option>
+                                                        <option value="80000"></option>
+                                                    </datalist>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
@@ -131,7 +132,7 @@ require_once("./resources/check_login.php");
                                                     <label for="file-input" class=" form-control-label">payment proof</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="file" id="file-input" name="img_input" class="form-control-file">
+                                                    <input type="file" id="file-input" name="img_input" class="form-control-file" required>
                                                 </div>
                                             </div>
 

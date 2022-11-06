@@ -1,6 +1,6 @@
 <?php 
-    require_once("./resources/connection_build.php");
-    require_once("./resources/check_login.php");
+    require_once("../resources/connection_build.php");
+    require_once("../resources/check_login.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@
     <!-- Title Page-->
     <title>Dashboard</title>
 
-    <?php require_once("./resources/header_links.php"); ?>
+    <?php require_once("../resources/header_links.php"); ?>
 
 </head>
 
@@ -41,6 +41,7 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>Agent ID</th>
                                                 <th>Amount</th>
                                                 <th>Status</th>
                                                 <th>Desp</th>
@@ -50,13 +51,14 @@
                                         <tbody>
 
                                             <?php 
-                                                $direct_agent_list_query = mysqli_query($conn,"SELECT * FROM `wallet_history` WHERE `agent_id`= '$my_id' ORDER BY `wallet_history`.`date_time` DESC");
+                                                $direct_agent_list_query = mysqli_query($conn,"SELECT * FROM `wallet_history` ORDER BY `wallet_history`.`date_time` DESC");
                                                 $a=0;
                                                 while ($data = mysqli_fetch_array($direct_agent_list_query))
                                                 {
                                                     ?>
                                                         <tr>
                                                             <td><?php echo ++$a;?></td>
+                                                            <td><?php echo $data['agent_id'];?></td>
                                                             <td><?php echo $data['amt'];?></td>
                                                             <td><?php echo ($data['status'])?'Debit':'Credit';?></td>
                                                             <td><?php echo $data['desp'];?></td>
@@ -79,7 +81,7 @@
             </div>
         </div>
     </div>
-    <?php require_once("./resources/footer_links.php") ?>
+    <?php require_once("../resources/footer_links.php") ?>
 </body>
 
 </html>

@@ -26,8 +26,8 @@
                 <div class="login-wrap">
                     <div class="login-content">
                         <div class="login-logo">
-                            <a href="#">
-                                <img src="images/icon/logo.png" alt="CoolAdmin">
+                            <a href="./index.php">
+                                <img style="height:auto; width:179px ;" src="images/icon/logo_.png" alt="logo">
                             </a>
                         </div>
                         <?php 

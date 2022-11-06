@@ -1,7 +1,7 @@
 <?php
-require_once("./resources/connection_build.php");
-require_once("./resources/check_login.php");
-require_once("./resources/function.php");
+require_once("../resources/connection_build.php");
+require_once("../resources/check_login.php");
+require_once("../resources/function.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +17,7 @@ require_once("./resources/function.php");
     <!-- Title Page-->
     <title>Dashboard</title>
 
-    <?php require_once("./resources/header_links.php"); ?>
+    <?php require_once("../resources/header_links.php"); ?>
 
 </head>
 
@@ -106,7 +106,7 @@ require_once("./resources/function.php");
                 </div>
             </div>
         </div>
-        <?php require_once("./resources/footer_links.php") ?>
+        <?php require_once("../resources/footer_links.php") ?>
 </body>
 
 </html>

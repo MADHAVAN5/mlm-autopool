@@ -32,7 +32,6 @@
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <?php 
-                    // $active = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `agent` WHERE `agent_id`='$my_id'"))
                     if (check_user_active_or_not($my_id)) {
                         ?>
                             <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">

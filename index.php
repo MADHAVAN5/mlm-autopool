@@ -26,7 +26,7 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="./index.php">
-                                <img src="images/icon/logo.png" alt="CoolAdmin">
+                                <img style="height:auto; width:179px ;" src="images/icon/logo_.png" alt="CoolAdmin">
                             </a>
                         </div>
                         <?php

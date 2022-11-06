@@ -1,6 +1,6 @@
 <?php
-require_once("./resources/connection_build.php");
-require_once("./resources/check_login.php");
+require_once("../resources/connection_build.php");
+require_once("../resources/check_login.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@ require_once("./resources/check_login.php");
     <!-- Title Page-->
     <title>Dashboard</title>
 
-    <?php require_once("./resources/header_links.php"); ?>
+    <?php require_once("../resources/header_links.php"); ?>
 
 </head>
 
@@ -51,7 +51,8 @@ require_once("./resources/check_login.php");
                                                             </button>
                                                         </div>
                                                     <?php
-                                                } else {
+                                                } 
+                                                else {
                                                     ?>
                                                         <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
                                                             <span class="badge badge-pill badge-danger">Alert</span>
@@ -76,7 +77,7 @@ require_once("./resources/check_login.php");
                                                 unset($_SESSION['status']);
                                             } 
                                         ?>
-                                        <form action="./request_handler.php" method="POST" class="">
+                                        <form action="../request_handler.php" method="POST" class="">
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
@@ -93,11 +94,63 @@ require_once("./resources/check_login.php");
                                                     <input type="text" id="password" name="pin" placeholder="Enter PIN" class="form-control">
                                                 </div>
                                             </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="select" class=" form-control-label">Package</label>
+                                                </div>
+                                                <div class="col-12 col-m d-9">
+                                                    <select name="package" id="select" class="form-control">
+                                                        <option value="">Please select</option>
+                                                        <option value="b-silver">Basic-Silver</option>
+                                                        <option value="b-gold">Basic-Gold</option>
+                                                        <option value="b-diamond">Basic-Diamond</option>
+                                                        <option value="b-platinum">Basic-Platinum</option>
+                                                        <option value="p-silver">Premium-Silver</option>
+                                                        <option value="p-gold">Premium-Gold</option>
+                                                        <option value="p-diamond">Premium-Diamond</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <div class="form-actions form-group">
                                                 <button type="submit" name="activate_btn" class="btn btn-success btn-sm">Activate</button>
                                             </div>
                                         </form>
                                     </div>
+                                </div>
+                                <h3 class="title-5 m-b-35">data table</h3>
+                                <div class="table-responsive table-responsive-data2">
+                                    <table class="table table-data2">
+                                        <thead>
+                                            <tr>
+                                                <th>Agent ID</th>
+                                                <th>Name</th>
+                                                <th>Transection ID</th>
+                                                <th>Date</th>
+                                                <th>Package</th>
+                                                <th>Amount</th>
+                                                <th>Proof</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $payment_proof = mysqli_query($conn, "SELECT * FROM `payment_proof` ORDER BY `payment_proof`.`date` DESC");
+                                            $a = 0;
+                                            while ($data = mysqli_fetch_array($payment_proof)) {
+                                            ?>
+                                                <tr class="tr-shadow">
+                                                    <td><?php echo $data['agent_id']; ?></td>
+                                                    <td><?php echo $data['name']; ?></td>
+                                                    <td><?php echo $data['transaction_id']; ?></td>
+                                                    <td><?php echo $data['date']; ?></td>
+                                                    <td><?php echo $data['package']; ?></td>
+                                                    <td><?php echo $data['amount']; ?></td>
+                                                    <td><a href="./images/payment_proof/<?php echo $data['img_name']; ?>">proof</a></td>
+                                                </tr>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
 
@@ -110,7 +163,7 @@ require_once("./resources/check_login.php");
             </div>
         </div>
     </div>
-    <?php require_once("./resources/footer_links.php") ?>
+    <?php require_once("../resources/footer_links.php") ?>
 </body>
 
 </html>

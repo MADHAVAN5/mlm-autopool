@@ -1,11 +1,11 @@
 <?php ?>
 <!-- HEADER MOBILE-->
-<header class="header-mobile d-block d-lg-none">
+<header class="header-mobile header-mobile-2 d-block d-lg-none">
     <div class="header-mobile__bar">
         <div class="container-fluid">
             <div class="header-mobile-inner">
                 <a class="logo" href="./dashboard.php">
-                    <img src="images/icon/logo.png" alt="CoolAdmin" />
+                    <img src="images/icon/logo_.png" alt="logo" />
                 </a>
                 <button class="hamburger hamburger--slider" type="button">
                     <span class="hamburger-box">
@@ -17,6 +17,30 @@
     </div>
     <nav class="navbar-mobile">
         <div class="container-fluid">
+            <?php
+            $nav_data = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM `agent` WHERE `agent_id`='$my_id'"));
+            if ($nav_data['package'] == "b-silver") {
+                $package = 'BASIC SILVER';
+            } elseif ($nav_data['package'] == "b-gold") {
+                $package = 'BASIC GOLD';
+            } elseif ($nav_data['package'] == "b-diamond") {
+                $package = 'BASIC DIAMOND';
+            } elseif ($nav_data['package'] == "b-platinum") {
+                $package = 'BASIC PLATINUM';
+            } elseif ($nav_data['package'] == "P-silver") {
+                $package = 'PRIMIUM SILVER';
+            } elseif ($nav_data['package'] == "P-gold") {
+                $package = 'PRIMIUM GOLD';
+            } elseif ($nav_data['package'] == "P-diamond") {
+                $package = 'PRIMIUM DIAMOND';
+            } else {
+                $package = 'NONE';
+            }
+            ?>
+            <div class="alert alert-primary" role="alert">
+                <span class="alert-link">ID:- </span><?php echo $my_id; ?><br>
+                <span class="alert-link">Package:- </span><?php echo $package; ?>
+            </div>
             <ul class="navbar-mobile__list list-unstyled">
                 <li>
                     <a href="./dashboard.php">
@@ -50,7 +74,7 @@
                 </li>
                 <li>
                     <a href="./package.php">
-                        <i class="fas fa-user"></i>Activate & Upgrade Plan
+                        <i class="far fa-check-square"></i>Activate & Upgrade Plan
                     </a>
                 </li>
             </ul>
@@ -63,10 +87,14 @@
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
         <a href="./dashboard.php">
-            <img src="images/icon/logo.png" alt="Cool Admin" />
+            <img src="images/icon/logo_.png" alt="logo" />
         </a>
     </div>
     <div class="menu-sidebar__content js-scrollbar1">
+        <div class="alert alert-primary" role="alert">
+            <span class="alert-link">ID:- </span><?php echo $my_id; ?><br>
+            <span class="alert-link">Package:- </span><?php echo $package; ?>
+        </div>
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
                 <li>
@@ -95,11 +123,10 @@
                 </li>
                 <li>
                     <a href="./package.php">
-                        <i class="fas fa-user"></i>Activate & Upgrade Plan</a>
+                        <i class="far fa-check-square"></i>Activate & Upgrade Plan</a>
                 </li>
             </ul>
         </nav>
     </div>
 </aside>
 <!-- END MENU SIDEBAR -->
-

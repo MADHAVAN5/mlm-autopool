@@ -117,6 +117,41 @@ require_once("./resources/check_login.php");
                                         </form>
                                     </div>
                                 </div>
+                                <h3 class="title-5 m-b-35">data table</h3>
+                                <div class="table-responsive table-responsive-data2">
+                                    <table class="table table-data2">
+                                        <thead>
+                                            <tr>
+                                                <th>Agent ID</th>
+                                                <th>Name</th>
+                                                <th>Transection ID</th>
+                                                <th>Date</th>
+                                                <th>Package</th>
+                                                <th>Amount</th>
+                                                <th>Proof</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $payment_proof = mysqli_query($conn, "SELECT * FROM `payment_proof` ORDER BY `payment_proof`.`date` DESC");
+                                            $a = 0;
+                                            while ($data = mysqli_fetch_array($payment_proof)) {
+                                            ?>
+                                                <tr class="tr-shadow">
+                                                    <td><?php echo $data['agent_id']; ?></td>
+                                                    <td><?php echo $data['name']; ?></td>
+                                                    <td><?php echo $data['transaction_id']; ?></td>
+                                                    <td><?php echo $data['date']; ?></td>
+                                                    <td><?php echo $data['package']; ?></td>
+                                                    <td><?php echo $data['amount']; ?></td>
+                                                    <td><a href="./images/payment_proof/<?php echo $data['img_name']; ?>">proof</a></td>
+                                                </tr>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
 
                         </div>

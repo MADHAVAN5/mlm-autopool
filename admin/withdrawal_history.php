@@ -1,6 +1,6 @@
 <?php 
-    require_once("./resources/connection_build.php");
-    require_once("./resources/check_login.php");
+    require_once("../resources/connection_build.php");
+    require_once("../resources/check_login.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@
     <!-- Title Page-->
     <title>Dashboard</title>
 
-    <?php require_once("./resources/header_links.php"); ?>
+    <?php require_once("../resources/header_links.php"); ?>
 
 </head>
 
@@ -52,7 +52,7 @@
                                         <tbody>
 
                                             <?php 
-                                                $direct_agent_list_query = mysqli_query($conn,"SELECT * FROM `withdraw_history` WHERE `agent_id`= '$my_id' ORDER BY `withdraw_history`.`req_time` DESC");
+                                                $direct_agent_list_query = mysqli_query($conn,"SELECT * FROM `withdraw_history` ORDER BY `withdraw_history`.`req_time` DESC");
                                                 $a=0;
                                                 while ($data = mysqli_fetch_array($direct_agent_list_query))
                                                 {
@@ -83,7 +83,7 @@
             </div>
         </div>
     </div>
-    <?php require_once("./resources/footer_links.php") ?>
+    <?php require_once("../resources/footer_links.php") ?>
 </body>
 
 </html>
