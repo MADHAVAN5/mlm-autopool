@@ -4,7 +4,7 @@
     <div class="header-mobile__bar">
         <div class="container-fluid">
             <div class="header-mobile-inner">
-                <a class="logo" href="index.html">
+                <a class="logo" href="./dashboard.php">
                     <img src="images/icon/logo.png" alt="CoolAdmin" />
                 </a>
                 <button class="hamburger hamburger--slider" type="button">
@@ -48,6 +48,11 @@
                         <i class="fas fa-user"></i>Profile
                     </a>
                 </li>
+                <li>
+                    <a href="./package.php">
+                        <i class="fas fa-user"></i>Activate & Upgrade Plan
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -57,7 +62,7 @@
 <!-- MENU SIDEBAR-->
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
-        <a href="#">
+        <a href="./dashboard.php">
             <img src="images/icon/logo.png" alt="Cool Admin" />
         </a>
     </div>
@@ -87,6 +92,10 @@
                 <li>
                     <a href="./profile.php">
                         <i class="fas fa-user"></i>Profile</a>
+                </li>
+                <li>
+                    <a href="./package.php">
+                        <i class="fas fa-user"></i>Activate & Upgrade Plan</a>
                 </li>
             </ul>
         </nav>

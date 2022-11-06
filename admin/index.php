@@ -1,5 +1,6 @@
 <?php
-    session_start();
+    require_once("./resources/connection_build.php");
+    require_once("./resources/check_login.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,64 +14,114 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Login</title>
+    <title>Dashboard</title>
 
-    <?php require_once("./resources/header_links.php") ?>
+    <?php require_once("./resources/header_links.php"); ?>
+
 </head>
 
 <body class="animsition">
     <div class="page-wrapper">
-        <div class="page-content--bge5">
-            <div class="container">
-                <div class="login-wrap">
-                    <div class="login-content">
-                        <div class="login-logo">
-                            <a href="./index.php">
-                                <img src="images/icon/logo.png" alt="CoolAdmin">
-                            </a>
-                        </div>
-                        <?php
-                            if (isset($_SESSION['error'])) {
-                                ?>
-                                <div class="alert alert-danger">
-                                        Login Invalid
+        <!-- HEADER MOBILE-->
+        <?php include("./resources/navbar.php"); ?>
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+
+            <?php //include("./resources/scroll_bar.php");?>
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <!-- <section class="container-fluid statistic statistic2"> -->
+                    <div class="container">
+                        <div class="row">
+                            <?php
+                                $agent_coungt_data = mysqli_fetch_array(mysqli_query($conn,"SELECT count(agent_id) total_agent FROM `agent`"));
+                            ?>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c1">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-account-o"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2><?php echo $agent_coungt_data['total_agent']?></h2>
+                                                <span>Total Registrations</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <?php
-                                unset($_SESSION['error']);
-                            }
-                        ?>
-                        <div class="login-form">
-                            <form action="request_handler.php" method="post">
-                                <div class="form-group">
-                                    <label>Agent ID</label>
-                                    <input class="au-input au-input--full" type="text" name="agent_id" placeholder="Agent ID" pattern="[0-9]{6}">
+                            </div>
+
+                            <?php
+                                $agent_coungt_data = mysqli_fetch_array(mysqli_query($conn,"SELECT count(agent_id) total_agent FROM `agent` WHERE `status` = '1'"));
+                            ?>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c2">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-account-o"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2><?php echo $agent_coungt_data['total_agent']?></h2>
+                                                <span>Total Active Agent</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input class="au-input au-input--full" type="password" name="agent_password" placeholder="Password">
+                            </div>
+
+                            <?php
+                                $agent_coungt_data = mysqli_fetch_array(mysqli_query($conn,"SELECT count(agent_id) total_agent FROM `agent` WHERE `status` = '0'"));
+                            ?>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c3">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-account-o"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2><?php echo $agent_coungt_data['total_agent']?></h2>
+                                                <span>Total Inactive User</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="login-checkbox">
-                                    <label>
-                                        <a href="#">Forgotten Password?</a>
-                                    </label>
+                            </div>
+
+                            <?php
+                                $agent_coungt_data_w = mysqli_fetch_array(mysqli_query($conn,"SELECT sum(wallet) totel_income FROM `agent_income`"));
+                            ?>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c4">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-money"></i>
+                                            </div>
+                                            <br>
+                                            <div class="text">
+                                                <h2><?php echo $agent_coungt_data_w['totel_income']?>.00</h2>
+                                                <span>Total Agent Incomes</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" name="login_btn" type="submit">sign in</button>
-                            </form>
-                            <div class="register-link">
-                                <p>
-                                    Don't you have account?
-                                    <a href="./register.php">Sign Up Here</a>
-                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- END MAIN CONTENT-->
+                <!-- END PAGE CONTAINER-->
             </div>
         </div>
-
     </div>
-
-    <?php require_once("./resources/footer_links.php")?>
+    <?php require_once("./resources/footer_links.php") ?>
 </body>
 
 </html>

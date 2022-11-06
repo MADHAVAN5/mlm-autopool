@@ -46,7 +46,7 @@ require_once("./resources/check_login.php");
                                         <li><strong>12</strong>totel levels</li>
                                         <li><strong></strong></li>
                                     </ul>
-                                    <button type="button" name="silver-pkg-btn" data-toggle="modal" data-target="#smallmodal" class="order-btn">Order Now</button>
+                                    <button name="silver-pkg-btn" type="button"  data-toggle="modal" data-target="#b_silver" class="order-btn">Order Now</button>
                                 </div>
 
                                 <div class="pricing-card">
@@ -59,7 +59,7 @@ require_once("./resources/check_login.php");
                                         <li><strong>100</strong>/Auto fill</li>
                                         <li><strong>12</strong>totel levels</li>
                                     </ul>
-                                    <button name="gold-pkg-btn" class="order-btn">Order Now</button>
+                                    <button name="gold-pkg-btn" type="button"  data-toggle="modal" data-target="#b_gold" class="order-btn">Order Now</button>
                                 </div>
 
                                 <div class="pricing-card">
@@ -72,7 +72,7 @@ require_once("./resources/check_login.php");
                                         <li><strong>100</strong>/Auto fill</li>
                                         <li><strong>12</strong>totel levels</li>
                                     </ul>
-                                    <button name="diamond-pkg-btn" class="order-btn">Order Now</a>
+                                    <button name="diamond-pkg-btn" type="button"  data-toggle="modal" data-target="#b_diamond" class="order-btn">Order Now</a>
                                 </div>
 
                                 <div class="pricing-card">
@@ -85,7 +85,7 @@ require_once("./resources/check_login.php");
                                         <li><strong>100</strong>/Auto fill</li>
                                         <li><strong>12</strong>totel levels</li>
                                     </ul>
-                                    <button name="untimate-pkg-btn" class="order-btn">Order Now</a>
+                                    <button name="untimate-pkg-btn" type="button"  data-toggle="modal" data-target="#b_platinum" class="order-btn">Order Now</a>
                                 </div>
                             </div>
                         </div>
@@ -100,11 +100,11 @@ require_once("./resources/check_login.php");
                                     <div class="price"><sup>₹</sup>12500<span>.00</span></div>
                                     <ul>
                                         <li><strong></strong></li>
-                                        <li><strong>100</strong>/refer</li>
+                                        <li><strong>1500</strong>/refer</li>
                                         <li><strong>5500</strong>/Auto fill</li>
                                         <li><strong></strong></li>
                                     </ul>
-                                    <a href="#" class="order-btn">Order Now</a>
+                                    <button type="button"  data-toggle="modal" data-target="#p_silver" class="order-btn">Order Now</button>
                                 </div>
 
                                 <div class="pricing-card">
@@ -112,11 +112,11 @@ require_once("./resources/check_login.php");
                                     <div class="price"><sup>₹</sup>55000<span>.00</span></div>
                                     <ul>
                                         <li><strong></strong></li>
-                                        <li><strong>100</strong>/refer</li>
+                                        <li><strong>5000</strong>/refer</li>
                                         <li><strong>25000</strong>/Auto fill</li>
                                         <li><strong></strong></li>
                                     </ul>
-                                    <a href="#" class="order-btn">Order Now</a>
+                                    <button type="button"  data-toggle="modal" data-target="#p_gold" class="order-btn">Order Now</button>
                                 </div>
 
                                 <div class="pricing-card">
@@ -124,17 +124,18 @@ require_once("./resources/check_login.php");
                                     <div class="price"><sup>₹</sup>80000<span>.00</span></div>
                                     <ul>
                                         <li><strong></strong></li>
-                                        <li><strong>100</strong>/refer</li>
+                                        <li><strong>10000</strong>/refer</li>
                                         <li><strong>33300</strong>/Auto fill</li>
                                         <li><strong></strong></li>
                                     </ul>
-                                    <a href="#" class="order-btn">Order Now</a>
+                                    <button type="button"  data-toggle="modal" data-target="#p_diamond" class="order-btn">Order Now</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+
+                <div class="modal fade" id="b_silver" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-sm" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -145,17 +146,186 @@ require_once("./resources/check_login.php");
                             </div>
                             <div class="modal-body">
                                 <p>
-                                    send 
+                                    pay ₹500 for this pakage <br> <br>
                                     Name : Akash Kumar <br>
                                     Acc NO : 139301000026173 <br>
                                     IFSC Code : IOBA0001393
                                     <br><br>
                                     Paytm : 9585368504
                                 </p>
+                                <img src="./images/qr.jpeg" class="img-fluid"></img>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button type="button" class="btn btn-primary">Confirm</button>
+                                <a href="./activation_req.php" class="btn btn-primary">Confirm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="b_gold" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="smallmodalLabel">BASIC GOLD plan</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    pay ₹1000 for this pakage <br> <br>
+                                    Name : Akash Kumar <br>
+                                    Acc NO : 139301000026173 <br>
+                                    IFSC Code : IOBA0001393
+                                    <br><br>
+                                    Paytm : 9585368504
+                                </p>
+                                <img src="./images/qr.jpeg" class="img-fluid"></img>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <a href="./activation_req.php" class="btn btn-primary">Confirm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="b_diamond" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="smallmodalLabel">BASIC DIAMOND plan</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    pay ₹2500 for this pakage <br> <br>
+                                    Name : Akash Kumar <br>
+                                    Acc NO : 139301000026173 <br>
+                                    IFSC Code : IOBA0001393
+                                    <br><br>
+                                    Paytm : 9585368504
+                                </p>
+                                <img src="./images/qr.jpeg" class="img-fluid"></img>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <a href="./activation_req.php" class="btn btn-primary">Confirm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="b_platinum" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="smallmodalLabel">BASIC PLATINUM plan</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    pay ₹6500 for this pakage <br> <br>
+                                    Name : Akash Kumar <br>
+                                    Acc NO : 139301000026173 <br>
+                                    IFSC Code : IOBA0001393
+                                    <br><br>
+                                    Paytm : 9585368504
+                                </p>
+                                <img src="./images/qr.jpeg" class="img-fluid"></img>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <a href="./activation_req.php" class="btn btn-primary">Confirm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="p_silver" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="smallmodalLabel">PRIMIUM SILVER plan</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    pay ₹12500 for this pakage <br> <br>
+                                    Name : Akash Kumar <br>
+                                    Acc NO : 139301000026173 <br>
+                                    IFSC Code : IOBA0001393
+                                    <br><br>
+                                    Paytm : 9585368504
+                                </p>
+                                <img src="./images/qr.jpeg" class="img-fluid"></img>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <a href="./activation_req.php" class="btn btn-primary">Confirm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="p_gold" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="smallmodalLabel">PRIMIUM GOLD plan</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    pay ₹55000 for this pakage <br> <br>
+                                    Name : Akash Kumar <br>
+                                    Acc NO : 139301000026173 <br>
+                                    IFSC Code : IOBA0001393
+                                    <br><br>
+                                    Paytm : 9585368504
+                                </p>
+                                <img src="./images/qr.jpeg" class="img-fluid"></img>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <a href="./activation_req.php" class="btn btn-primary">Confirm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="p_diamond" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="smallmodalLabel">PRIMIUM DIAMOND plan</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    pay ₹80000 this pakage <br> <br> 
+                                    Name : Akash Kumar <br>
+                                    Acc NO : 139301000026173 <br>
+                                    IFSC Code : IOBA0001393
+                                    <br><br>
+                                    Paytm : 9585368504
+                                </p>
+                                <img src="./images/qr.jpeg" class="img-fluid"></img>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <a href="./activation_req.php" class="btn btn-primary">Confirm</a>
                             </div>
                         </div>
                     </div>

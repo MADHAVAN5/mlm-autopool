@@ -1,6 +1,7 @@
 <?php
     require_once("./resources/connection_build.php");
     require_once("./resources/check_login.php");
+    require_once("./resources/function.php")
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,11 +28,23 @@
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
-
-            <?php //include("./resources/scroll_bar.php");?>
-
+            
             <!-- MAIN CONTENT-->
             <div class="main-content">
+                <?php 
+                    // $active = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `agent` WHERE `agent_id`='$my_id'"))
+                    if (check_user_active_or_not($my_id)) {
+                        ?>
+                            <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
+			            	    <span class="badge badge-pill badge-danger">Alert</span>
+				                    Your account is not Active. Activate your account and earn money.
+    	    			        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	    	    	    	        <span aria-hidden="true">&times;</span>
+				                </button>
+			                </div>
+                        <?php
+                    }
+                ?>
                 <div class="section__content section__content--p30">
                     <!-- <section class="container-fluid statistic statistic2"> -->
                     <div class="container">
