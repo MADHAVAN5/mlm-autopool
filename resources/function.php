@@ -78,6 +78,8 @@ function level_income_distribute($agent_id)
     mysqli_query($conn, "INSERT INTO `wallet_history`(`agent_id`, `amt`, `desp`, `date_time`, `status`) VALUES ('$sponsor_id','$amt','Referral Income','$time','0')");
     $a = 1;
     while ($a <= 5 && $sponsor_id != 0) {
+        $qurry = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM `agent` WHERE `agent_id`='$sponsor_id'"));
+        $package = $qurry['package'];
         if($package == 'b-silver') {
             $amt = 20;
             mysqli_query($conn, "UPDATE `agent_income` SET `wallet`=`wallet`+$amt WHERE `agent_id`='$sponsor_id'");

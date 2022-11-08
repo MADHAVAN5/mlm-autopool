@@ -17,30 +17,6 @@
     </div>
     <nav class="navbar-mobile">
         <div class="container-fluid">
-            <?php
-            $nav_data = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM `agent` WHERE `agent_id`='$my_id'"));
-            if ($nav_data['package'] == "b-silver") {
-                $package = 'BASIC SILVER';
-            } elseif ($nav_data['package'] == "b-gold") {
-                $package = 'BASIC GOLD';
-            } elseif ($nav_data['package'] == "b-diamond") {
-                $package = 'BASIC DIAMOND';
-            } elseif ($nav_data['package'] == "b-platinum") {
-                $package = 'BASIC PLATINUM';
-            } elseif ($nav_data['package'] == "P-silver") {
-                $package = 'PRIMIUM SILVER';
-            } elseif ($nav_data['package'] == "P-gold") {
-                $package = 'PRIMIUM GOLD';
-            } elseif ($nav_data['package'] == "P-diamond") {
-                $package = 'PRIMIUM DIAMOND';
-            } else {
-                $package = 'NONE';
-            }
-            ?>
-            <div class="alert alert-primary" role="alert">
-                <span class="alert-link">ID:- </span><?php echo $my_id; ?><br>
-                <span class="alert-link">Package:- </span><?php echo $package; ?>
-            </div>
             <ul class="navbar-mobile__list list-unstyled">
                 <li>
                     <a href="./dashboard.php">
@@ -91,10 +67,6 @@
         </a>
     </div>
     <div class="menu-sidebar__content js-scrollbar1">
-        <div class="alert alert-primary" role="alert">
-            <span class="alert-link">ID:- </span><?php echo $my_id; ?><br>
-            <span class="alert-link">Package:- </span><?php echo $package; ?>
-        </div>
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
                 <li>

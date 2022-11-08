@@ -43,6 +43,7 @@
                                                 <th>#</th>
                                                 <th>Agent Id & Name</th>
                                                 <th>Status</th>
+                                                <th>Package</th>
                                                 <th>Agent Mobile</th>
                                             </tr>
                                         </thead>
@@ -58,6 +59,7 @@
                                                             <td><?php echo ++$a;?></td>
                                                             <td><?php echo $data['agent_id']."<br>".$data['agent_name'];?></td>
                                                             <td><?php echo ($data['status'])?'active':'Inactive';?></td>
+                                                            <td><?php echo $data['package'];?></td>
                                                             <td><?php echo $data['agent_mobile'];?></td>
                                                         </tr>
                                                     <?php
