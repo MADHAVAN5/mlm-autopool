@@ -26,7 +26,7 @@
                 <div class="login-wrap">
                     <div class="login-content">
                         <div class="login-logo">
-                            <a href="./index.php">
+                            <a href="./login.php">
                                 <img style="height:auto; width:179px ;" src="images/icon/logo_.png" alt="logo">
                             </a>
                         </div>
@@ -93,7 +93,7 @@
                             <div class="register-link">
                                 <p>
                                     Already have account?
-                                    <a href="./index.php">Sign In</a>
+                                    <a href="./login.php">Sign In</a>
                                 </p>
                             </div>
                         </div>

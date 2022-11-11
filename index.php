@@ -1,5 +1,7 @@
 <?php
-    session_start();
+require_once("./resources/connection_build.php");
+require_once("./resources/check_login.php");
+require_once("./resources/function.php")
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,64 +15,133 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Login</title>
+    <title>Dashboard</title>
 
-    <?php require_once("./resources/header_links.php") ?>
+    <?php require_once("./resources/header_links.php"); ?>
+
 </head>
 
 <body class="animsition">
     <div class="page-wrapper">
-        <div class="page-content--bge5">
-            <div class="container">
-                <div class="login-wrap">
-                    <div class="login-content">
-                        <div class="login-logo">
-                            <a href="./index.php">
-                                <img style="height:auto; width:179px ;" src="images/icon/logo_.png" alt="CoolAdmin">
-                            </a>
-                        </div>
-                        <?php
-                            if (isset($_SESSION['error'])) {
-                                ?>
-                                <div class="alert alert-danger">
-                                        Login Invalid
+        <!-- HEADER MOBILE-->
+        <?php include("./resources/navbar.php"); ?>
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <div>
+                <form action="./request_handler.php" method="post">
+                    <div class="btn_container">
+                    <button class="btn btn-danger" name="logout_btn" type="submit">logout</button>
+                    </div>
+                </form>
+            </div>
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <?php
+                $nav_data = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM `agent` WHERE `agent_id`='$my_id'"));
+                if ($nav_data['package'] == "b-silver") {
+                    $package = 'BASIC SILVER';
+                } elseif ($nav_data['package'] == "b-gold") {
+                    $package = 'BASIC GOLD';
+                } elseif ($nav_data['package'] == "b-diamond") {
+                    $package = 'BASIC DIAMOND';
+                } elseif ($nav_data['package'] == "b-platinum") {
+                    $package = 'BASIC PLATINUM';
+                } elseif ($nav_data['package'] == "p-silver") {
+                    $package = 'PRIMIUM SILVER';
+                } elseif ($nav_data['package'] == "p-gold") {
+                    $package = 'PRIMIUM GOLD';
+                } elseif ($nav_data['package'] == "p-diamond") {
+                    $package = 'PRIMIUM DIAMOND';
+                } else {
+                    $package = 'NONE';
+                }
+                ?>
+                <div class="alert alert-primary" role="alert">
+                    <span class="alert-link">ID:- </span><?php echo $my_id; ?><br>
+                    <span class="alert-link">Name:- </span><?php echo $nav_data['agent_name']; ?><br>
+                    <span class="alert-link">Package:- </span><?php echo $package; ?>
+                </div>
+                <?php
+                if (check_user_active_or_not($my_id)) {
+                ?>
+                    <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
+                        <span class="badge badge-pill badge-danger">Alert</span>
+                        Your account is not Active. Activate your account and earn money.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <?php
+                }
+                ?>
+                <div class="section__content statistic2 section__content--p30">
+                    <!-- <section class="container-fluid statistic statistic2"> -->
+                    <div class="container">
+                        <div class="row">
+                            <?php
+                            $agent_coungt_data = mysqli_fetch_array(mysqli_query($conn, "SELECT count(agent_id) total_agent FROM `agent` WHERE `sponsor_id` = '$my_id'"));
+                            ?>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="statistic__item statistic__item--green">
+                                    <h2 class="number"><?php echo $agent_coungt_data['total_agent'] ?></h2>
+                                    <span class="desc">Total Registrations</span>
+                                    <div class="icon">
+                                        <i class="zmdi zmdi-account-o"></i>
+                                    </div>
                                 </div>
-                                <?php
-                                unset($_SESSION['error']);
-                            }
-                        ?>
-                        <div class="login-form">
-                            <form action="request_handler.php" method="post">
-                                <div class="form-group">
-                                    <label>Agent ID</label>
-                                    <input class="au-input au-input--full" type="text" name="agent_id" placeholder="Agent ID" pattern="[0-9]{6}">
+                            </div>
+
+                            <?php
+                            $agent_coungt_data = mysqli_fetch_array(mysqli_query($conn, "SELECT count(agent_id) total_agent FROM `agent` WHERE `sponsor_id` = '$my_id' && `status` = '1'"));
+                            ?>
+
+                            <div class="col-md-6 col-lg-3">
+                                <div class="statistic__item statistic__item--orange">
+                                    <h2 class="number"><?php echo $agent_coungt_data['total_agent'] ?></h2>
+                                    <span class="desc">Total Active Agent</span>
+                                    <div class="icon">
+                                        <i class="zmdi zmdi-account-o"></i>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input class="au-input au-input--full" type="password" name="agent_password" placeholder="Password">
+                            </div>
+
+                            <?php
+                            $agent_coungt_data = mysqli_fetch_array(mysqli_query($conn, "SELECT count(agent_id) total_agent FROM `agent` WHERE `sponsor_id` = '$my_id' && `status` = '0'"));
+                            ?>
+
+                            <div class="col-md-6 col-lg-3">
+                                <div class="statistic__item statistic__item--blue">
+                                    <h2 class="number"><?php echo $agent_coungt_data['total_agent'] ?></h2>
+                                    <span class="desc">Total Inactive User</span>
+                                    <div class="icon">
+                                        <i class="zmdi zmdi-account-o"></i>
+                                    </div>
                                 </div>
-                                <div class="login-checkbox">
-                                    <label>
-                                        <a href="#">Forgotten Password?</a>
-                                    </label>
+                            </div>
+
+                            <?php
+                            $agent_coungt_data_w = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM `agent_income` WHERE `agent_id` = '$my_id'"));
+                            ?>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="statistic__item statistic__item--red">
+                                    <h2 class="number"><?php echo $agent_coungt_data_w['wallet'] ?>.00</h2>
+                                    <span class="desc">Wallet Amount</span>
+                                    <div class="icon">
+                                        <i class="zmdi zmdi-money"></i>
+                                    </div>
                                 </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" name="login_btn" type="submit">sign in</button>
-                            </form>
-                            <div class="register-link">
-                                <p>
-                                    Don't you have account?
-                                    <a href="./register.php">Sign Up Here</a>
-                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
+                <?php //require_once("./resources/footer.php");?>
+                <!-- END MAIN CONTENT-->
+                <!-- END PAGE CONTAINER-->
             </div>
         </div>
-
     </div>
-
-    <?php require_once("./resources/footer_links.php")?>
+    <?php require_once("./resources/footer_links.php") ?>
 </body>
 
 </html>

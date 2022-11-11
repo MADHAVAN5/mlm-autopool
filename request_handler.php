@@ -46,14 +46,14 @@ if (isset($_REQUEST['login_btn'])) {
         } elseif (password_verify($agent_password, $hash_pass)) {
             $_SESSION['sess_id'] = session_id();
             $_SESSION['my_id'] = $agent_id;
-            header("Location:dashboard.php");
+            header("Location:index.php");
         } else {
             $_SESSION['error'] = "not_valid";
-            header("Location:index.php");
+            header("Location:login.php");
         }
     } else {
         $_SESSION['error'] = "not_found";
-        header("Location:index.php");
+        header("Location:login.php");
     }
     // header("Location:index.php");
 }
@@ -152,4 +152,10 @@ if (isset($_REQUEST['withdrawal__btn'])) {
     mysqli_query($conn, "UPDATE `withdraw_history` SET `status`='1',`approve_time`='$timestamp' WHERE `agent_id`='$agent_id'");
     $_SESSION['status'] = 4;
     header("Location:./admin/withdrawal.php");
+}
+
+if (isset($_REQUEST['logout_btn'])) {
+    unset($_SESSION['sess_id']);
+    unset($_SESSION['my_id']);
+    header("Location:login.php");
 }

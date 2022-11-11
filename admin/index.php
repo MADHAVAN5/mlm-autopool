@@ -22,6 +22,13 @@
 
 <body class="animsition">
     <div class="page-wrapper">
+        <div>
+            <form action="../request_handler.php" method="post">
+                <div class="btn_container">
+                    <button class="btn btn-danger" name="logout_btn" type="submit">logout</button>
+                </div>
+            </form>
+        </div>
         <!-- HEADER MOBILE-->
         <?php include("./resources/navbar.php"); ?>
 

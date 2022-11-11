@@ -95,7 +95,7 @@ require_once("../resources/check_login.php");
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <div class="col col-md-3">
+                                                <div class="col col-md-4">
                                                     <label for="select" class=" form-control-label">Package</label>
                                                 </div>
                                                 <div class="col-12 col-m d-9">
