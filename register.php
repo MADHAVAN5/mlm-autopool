@@ -69,7 +69,7 @@
                             <form action="./request_handler.php" method="post">
                                 <div class="form-group">
                                     <!-- <label>Sponsor ID</label> -->
-                                    <input class="au-input au-input--full" type="text" name="sps_id" placeholder="Sponsor ID" pattern="[0-9]{6}">
+                                    <input class="au-input au-input--full" type="text" name="sps_id" id="sps_id" value="<?php if(isset($_GET['sps_id'])) { echo($_GET['sps_id']); } ?>" placeholder="Sponsor ID" pattern="[0-9]{6}">
                                 </div>
                                 <div class="form-group">
                                     <!-- <label>Full name</label> -->
@@ -80,7 +80,7 @@
                                     <input class="au-input au-input--full" type="phone" name="user_mob" placeholder="Mobile" required>
                                 </div>
                                 <div class="form-group">
-                                    <!-- <label>Password</label> -->
+                                    <!-- <label>Email</label> -->
                                     <input class="au-input au-input--full" type="password" name="user_password" placeholder="Password" required>
                                 </div>
                                 <div class="login-checkbox">

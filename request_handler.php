@@ -2,9 +2,11 @@
 require("./resources/connection_build.php");
 require("./resources/function.php");
 
+
 if (isset($_REQUEST['register_btn'])) {
     $sps_id = mysqli_real_escape_string($conn, $_REQUEST['sps_id']);
     $username = mysqli_real_escape_string($conn, $_REQUEST['username']);
+    $email = mysqli_real_escape_string($conn, $_REQUEST['user_email']);
     $user_mob = mysqli_real_escape_string($conn, $_REQUEST['user_mob']);
     $user_password = mysqli_real_escape_string($conn, $_REQUEST['user_password']);
     if ($sps_id == '') {

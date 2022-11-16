@@ -132,6 +132,60 @@ require_once("./resources/function.php")
                                     </div>
                                 </div>
                             </div>
+
+                            
+                            <?php
+                            $income_data = mysqli_fetch_array(mysqli_query($conn, "SELECT SUM(amt) income FROM `wallet_history` WHERE `agent_id` = '$my_id' && `status` = '0'"));
+                            ?>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="statistic__item statistic__item--orange">
+                                    <h2 class="number"><?php echo $income_data['income'] ?>.00</h2>
+                                    <span class="desc">Total Income</span>
+                                    <div class="icon">
+                                        <i class="zmdi zmdi-money"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <?php
+                            $level_coungt_data = mysqli_fetch_array(mysqli_query($conn, "SELECT SUM(amt) level_income FROM `wallet_history` WHERE `agent_id` = '$my_id' && `desp` = 'Level Income'"));
+                            ?>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="statistic__item statistic__item--blue">
+                                    <h2 class="number"><?php echo $level_coungt_data['level_income'] ?>.00</h2>
+                                    <span class="desc">Level Income</span>
+                                    <div class="icon">
+                                        <i class="zmdi zmdi-money"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <?php
+                            $matrix_coungt_data = mysqli_fetch_array(mysqli_query($conn, "SELECT SUM(amt) matrix_income FROM `wallet_history` WHERE `agent_id` = '$my_id' && `desp` = 'Matrix autopool Level Income'"));
+                            ?>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="statistic__item statistic__item--red">
+                                    <h2 class="number"><?php echo $matrix_coungt_data['matrix_income'] ?>.00</h2>
+                                    <span class="desc">Matrix Income</span>
+                                    <div class="icon">
+                                        <i class="zmdi zmdi-money"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <?php
+                            $ref_income_data = mysqli_fetch_array(mysqli_query($conn, "SELECT sum(amt) ref_income FROM `wallet_history` WHERE `agent_id` = '$my_id' && `desp` = 'Referral Income'"));
+                            ?>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="statistic__item statistic__item--green">
+                                    <h2 class="number"><?php echo $ref_income_data['ref_income'] ?>.00</h2>
+                                    <span class="desc">Referral Income</span>
+                                    <div class="icon">
+                                        <i class="zmdi zmdi-money"></i>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

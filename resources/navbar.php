@@ -53,6 +53,11 @@
                         <i class="far fa-check-square"></i>Activate & Upgrade Plan
                     </a>
                 </li>
+                <li>
+                    <a href="./referral.php">
+                        <i class="fas fa-user-plus"></i>Refer and Earn
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -96,6 +101,10 @@
                 <li>
                     <a href="./package.php">
                         <i class="far fa-check-square"></i>Activate & Upgrade Plan</a>
+                </li>
+                <li>
+                    <a href="./referral.php">
+                        <i class="fas fa-user-plus"></i>Refer and Earn</a>
                 </li>
             </ul>
         </nav>

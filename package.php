@@ -1,6 +1,7 @@
 <?php
 require_once("./resources/connection_build.php");
 require_once("./resources/check_login.php");
+require_once("./resources/function.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +34,9 @@ require_once("./resources/check_login.php");
                 <div class="section__content section__content--p30">
                     <!-- <section class="container-fluid statistic statistic2"> -->
                     <div class="container">
+                        <?php 
+                            $a = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `agent` WHERE `agent_id`='$my_id'"));
+                        ?>
                         <h1 class="d-flex justify-content-center">BASIC PLANS</h1>
                         <div class="row m-t-30">
                             <div class="pricing-table col">
@@ -46,7 +50,30 @@ require_once("./resources/check_login.php");
                                         <li><strong>12</strong>totel levels</li>
                                         <li><strong></strong></li>
                                     </ul>
-                                    <button name="silver-pkg-btn" type="button"  data-toggle="modal" data-target="#b_silver" class="order-btn">Order Now</button>
+                                    <button name="silver-pkg-btn" type="button"  data-toggle="modal" data-target="#b_silver" class="order-btn">
+                                        <?php 
+                                            if($a['package']=="b-silver")
+                                            {
+                                                echo "Active";
+                                            }
+                                            elseif(check_payment($my_id))
+                                            {
+                                                $b = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `payment_proof` WHERE `agent_id`='$my_id'"));
+                                                if ($b['package']=="b-silver")
+                                                {
+                                                    echo "Request Send";
+                                                }
+                                                else
+                                                {
+                                                    echo "Order Now";
+                                                }
+                                            }
+                                            else
+                                            {
+                                                echo "Order Now";
+                                            }
+                                        ?>
+                                    </button>
                                 </div>
 
                                 <div class="pricing-card">
@@ -59,7 +86,30 @@ require_once("./resources/check_login.php");
                                         <li><strong>100</strong>/Auto fill</li>
                                         <li><strong>12</strong>totel levels</li>
                                     </ul>
-                                    <button name="gold-pkg-btn" type="button"  data-toggle="modal" data-target="#b_gold" class="order-btn">Order Now</button>
+                                    <button name="gold-pkg-btn" type="button"  data-toggle="modal" data-target="#b_gold" class="order-btn">
+                                        <?php 
+                                            if($a['package']=="b-gold")
+                                            {
+                                                echo "Active";
+                                            }
+                                            elseif(check_payment($my_id))
+                                            {
+                                                $b = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `payment_proof` WHERE `agent_id`='$my_id'"));
+                                                if ($b['package']=="b-gold")
+                                                {
+                                                    echo "Request Send";
+                                                }
+                                                else
+                                                {
+                                                    echo "Order Now";
+                                                }
+                                            }
+                                            else
+                                            {
+                                                echo "Order Now";
+                                            }
+                                        ?>
+                                    </button>
                                 </div>
 
                                 <div class="pricing-card">
@@ -72,7 +122,30 @@ require_once("./resources/check_login.php");
                                         <li><strong>100</strong>/Auto fill</li>
                                         <li><strong>12</strong>totel levels</li>
                                     </ul>
-                                    <button name="diamond-pkg-btn" type="button"  data-toggle="modal" data-target="#b_diamond" class="order-btn">Order Now</a>
+                                    <button name="diamond-pkg-btn" type="button"  data-toggle="modal" data-target="#b_diamond" class="order-btn">
+                                    <?php 
+                                            if($a['package']=="b-diamond")
+                                            {
+                                                echo "Active";
+                                            }
+                                            elseif(check_payment($my_id))
+                                            {
+                                                $b = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `payment_proof` WHERE `agent_id`='$my_id'"));
+                                                if ($b['package']=="b-diamond")
+                                                {
+                                                    echo "Request Send";
+                                                }
+                                                else
+                                                {
+                                                    echo "Order Now";
+                                                }
+                                            }
+                                            else
+                                            {
+                                                echo "Order Now";
+                                            }
+                                        ?>
+                                    </button>
                                 </div>
 
                                 <div class="pricing-card">
@@ -85,7 +158,30 @@ require_once("./resources/check_login.php");
                                         <li><strong>100</strong>/Auto fill</li>
                                         <li><strong>12</strong>totel levels</li>
                                     </ul>
-                                    <button name="untimate-pkg-btn" type="button"  data-toggle="modal" data-target="#b_platinum" class="order-btn">Order Now</a>
+                                    <button name="untimate-pkg-btn" type="button"  data-toggle="modal" data-target="#b_platinum" class="order-btn">
+                                        <?php 
+                                            if($a['package']=="b-platinum")
+                                            {
+                                                echo "Active";
+                                            }
+                                            elseif(check_payment($my_id))
+                                            {
+                                                $b = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `payment_proof` WHERE `agent_id`='$my_id'"));
+                                                if ($b['package']=="b-platinum")
+                                                {
+                                                    echo "Request Send";
+                                                }
+                                                else
+                                                {
+                                                    echo "Order Now";
+                                                }
+                                            }
+                                            else
+                                            {
+                                                echo "Order Now";
+                                            }
+                                        ?>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +200,30 @@ require_once("./resources/check_login.php");
                                         <li><strong>5500</strong>/Auto fill</li>
                                         <li><strong></strong></li>
                                     </ul>
-                                    <button type="button"  data-toggle="modal" data-target="#p_silver" class="order-btn">Order Now</button>
+                                    <button type="button"  data-toggle="modal" data-target="#p_silver" class="order-btn">
+                                        <?php 
+                                            if($a['package']=="p-silver")
+                                            {
+                                                echo "Active";
+                                            }
+                                            elseif(check_payment($my_id))
+                                            {
+                                                $b = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `payment_proof` WHERE `agent_id`='$my_id'"));
+                                                if ($b['package']=="p-silver")
+                                                {
+                                                    echo "Request Send";
+                                                }
+                                                else
+                                                {
+                                                    echo "Order Now";
+                                                }
+                                            }
+                                            else
+                                            {
+                                                echo "Order Now";
+                                            }
+                                        ?>
+                                    </button>
                                 </div>
 
                                 <div class="pricing-card">
@@ -116,7 +235,30 @@ require_once("./resources/check_login.php");
                                         <li><strong>25000</strong>/Auto fill</li>
                                         <li><strong></strong></li>
                                     </ul>
-                                    <button type="button"  data-toggle="modal" data-target="#p_gold" class="order-btn">Order Now</button>
+                                    <button type="button"  data-toggle="modal" data-target="#p_gold" class="order-btn">
+                                        <?php 
+                                            if($a['package']=="p-gold")
+                                            {
+                                                echo "Active";
+                                            }
+                                            elseif(check_payment($my_id))
+                                            {
+                                                $b = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `payment_proof` WHERE `agent_id`='$my_id'"));
+                                                if ($b['package']=="p-gold")
+                                                {
+                                                    echo "Request Send";
+                                                }
+                                                else
+                                                {
+                                                    echo "Order Now";
+                                                }
+                                            }
+                                            else
+                                            {
+                                                echo "Order Now";
+                                            }
+                                        ?>
+                                    </button>
                                 </div>
 
                                 <div class="pricing-card">
@@ -128,7 +270,30 @@ require_once("./resources/check_login.php");
                                         <li><strong>33300</strong>/Auto fill</li>
                                         <li><strong></strong></li>
                                     </ul>
-                                    <button type="button"  data-toggle="modal" data-target="#p_diamond" class="order-btn">Order Now</button>
+                                    <button type="button"  data-toggle="modal" data-target="#p_diamond" class="order-btn">
+                                        <?php 
+                                            if($a['package']=="p-diamond")
+                                            {
+                                                echo "Active";
+                                            }
+                                            elseif(check_payment($my_id))
+                                            {
+                                                $b = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `payment_proof` WHERE `agent_id`='$my_id'"));
+                                                if ($b['package']=="p-diamond")
+                                                {
+                                                    echo "Request Send";
+                                                }
+                                                else
+                                                {
+                                                    echo "Order Now";
+                                                }
+                                            }
+                                            else
+                                            {
+                                                echo "Order Now";
+                                            }
+                                        ?>
+                                    </button>
                                 </div>
                             </div>
                         </div>
